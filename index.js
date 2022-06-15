@@ -1,11 +1,21 @@
-// OnClick Audio element
+// Audio element
 const audio = document.createElement("AUDIO");
 document.body.appendChild(audio);
 audio.setAttribute("src", "./zik.mp3");
 
-// Number of clicks counter
+// Initial message Element
+const message = document.createElement("p");
+document.body.appendChild(message);
+message.textContent = "Cliquez sur les bulles pour jouer";
+setTimeout(() => {
+  message.textContent = "";
+}, 5000);
+
+// Number of clicks counter Element
+const counterElt = document.createElement("h2");
+document.body.appendChild(counterElt);
+counterElt.textContent = "0";
 let counter = 0;
-const counterElt = document.getElementById("counterElt");
 
 // Bubble function
 const bubble = () => {
@@ -41,11 +51,9 @@ const bubble = () => {
   }, 7000);
 };
 
-// Call to bublle function 
+// Call to bublle function
 if (window.matchMedia("(min-width: 700px)").matches) {
   setInterval(bubble, 300);
 } else {
   setInterval(bubble, 500);
 }
-
-
